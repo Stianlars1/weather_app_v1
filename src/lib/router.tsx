@@ -1,16 +1,18 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { DashboardPage } from "../pages/dashboard/dashboard.tsx";
+import { ErrorPage } from "../pages/error/errorPage.tsx";
 
 export const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <></>,
-      errorElement: <></>,
+      element: <DashboardPage />,
+      errorElement: <ErrorPage></ErrorPage>,
     },
     {
       path: "/:location",
       element: <></>,
-      errorElement: <></>,
+      errorElement: <ErrorPage></ErrorPage>,
     },
   ]);
   return <RouterProvider router={router} />;

@@ -7,7 +7,10 @@ export const getWeatherCardErrorMessage = (location: LocationType) => {
 
   if (isUsersCurrentLocation) {
     if (isErrorBecauseOfSecureContextFromGeoLocationAPI) {
-      return { errorMessage: "Unavailable", showRefreshButton: false };
+      return {
+        errorMessage: "My Location is unavailable",
+        showRefreshButton: false,
+      };
     }
     return {
       errorMessage: "Error fetching current location",

@@ -1,7 +1,7 @@
-import styles from "./header.module.css";
 import { useNavigate } from "react-router-dom";
 import { MouseEvent } from "react";
 import { ROOT_PATH } from "../../../utils/urls.ts";
+import styles from "./header.module.css";
 
 interface HeaderProps {
   headerTitle: string;

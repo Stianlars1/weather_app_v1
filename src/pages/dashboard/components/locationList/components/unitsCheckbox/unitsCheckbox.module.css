@@ -1,0 +1,14 @@
+.unitsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding: var(--padding) 0;
+  margin: 0 auto;
+  font-size: 1.25rem;
+}
+.unitsWrapper input {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=unitsCheckbox.module.css.map */

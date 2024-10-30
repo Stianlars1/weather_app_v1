@@ -13,7 +13,7 @@ export const WeatherCard = ({
   location: LocationType;
   units?: UnitsType;
 }) => {
-  const { data, isError, error, isLoading, refetch } = useFetchWeatherData(
+  const { data, isError, isLoading, refetch } = useFetchWeatherData(
     location,
     units,
   );

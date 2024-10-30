@@ -3,6 +3,7 @@ import { WeatherCard } from "../weatherCard/weatherCard.tsx";
 import styles from "./locationList.module.css";
 import { defaultLocations } from "./helper.ts";
 import { useCurrentLocation } from "./hooks/useCurrentLocation.tsx";
+import { UnitsCheckbox } from "./components/unitsCheckbox/unitsCheckbox.tsx";
 
 export const LocationList = () => {
   const { userLocation } = useCurrentLocation();
@@ -13,6 +14,8 @@ export const LocationList = () => {
 
   return (
     <>
+      <UnitsCheckbox />
+
       <ul className={styles.locationList}>
         {locations.map((location) => (
           <WeatherCard

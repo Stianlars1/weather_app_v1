@@ -7,9 +7,15 @@ export const getWeatherCardErrorMessage = (location: LocationType) => {
 
   if (isUsersCurrentLocation) {
     if (isErrorBecauseOfSecureContextFromGeoLocationAPI) {
-      return "Couldn't load location. This feature is only available in secure contexts (HTTPS)";
+      return { errorMessage: "Unavailable", showRefreshButton: false };
     }
-    return "Error fetching current location";
+    return {
+      errorMessage: "Error fetching current location",
+      showRefreshButton: true,
+    };
   }
-  return "Error fetching weather data";
+  return {
+    errorMessage: "Error fetching weather data",
+    showRefreshButton: true,
+  };
 };

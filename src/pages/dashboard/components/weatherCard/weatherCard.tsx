@@ -29,11 +29,12 @@ export const WeatherCard = ({
   }
 
   if (isError) {
-    const errorMessage = getWeatherCardErrorMessage(location);
+    const { errorMessage, showRefreshButton } =
+      getWeatherCardErrorMessage(location);
     return (
       <li className={styles.errorCard} aria-label="Error loading weather data">
         <p>{errorMessage}</p>
-        <button onClick={refetch}>Try again</button>
+        {showRefreshButton && <button onClick={refetch}>Try again</button>}
       </li>
     );
   }

@@ -1,5 +1,6 @@
 import { Header } from "../../components/layout/header/header.tsx";
 import { LocationList } from "./components/locationList/locationList.tsx";
+import { UnitsProvider } from "../../context/unitsProvider.tsx";
 
 export const DashboardPage = () => {
   return (
@@ -7,7 +8,9 @@ export const DashboardPage = () => {
       <Header headerTitle={"Dashboard"} />
 
       <main>
-        <LocationList />
+        <UnitsProvider>
+          <LocationList />
+        </UnitsProvider>
       </main>
     </>
   );

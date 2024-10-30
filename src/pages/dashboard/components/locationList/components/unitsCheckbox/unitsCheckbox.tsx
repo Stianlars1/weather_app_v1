@@ -1,11 +1,12 @@
+import { useContext } from "react";
+import { UnitsContext } from "../../../../../../context/unitsContext.tsx";
 import styles from "./unitsCheckbox.module.css";
-import { UnitsType } from "../../../../types/units.ts";
-import { useState } from "react";
 
 export const UnitsCheckbox = () => {
-  const [units, setUnits] = useState<UnitsType>("metric");
+  const { units, toggleUnitsChange } = useContext(UnitsContext);
   const handleCheckboxChange = () => {
-    setUnits(units === "metric" ? "imperial" : "metric");
+    console.log("UnitsCheckbox handleCheckboxChange", units);
+    toggleUnitsChange();
   };
   return (
     <section className={styles.unitsWrapper}>

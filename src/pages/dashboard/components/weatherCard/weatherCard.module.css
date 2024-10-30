@@ -1,0 +1,68 @@
+.weatherCard,
+.errorCard,
+.loadingCard {
+  flex: 1 1 min(200px, 100%);
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+}
+
+.weatherCard {
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  background-color: hsl(var(card));
+  position: relative;
+  user-select: all;
+}
+.weatherCard .title,
+.weatherCard .degrees {
+  font-size: var(--spacing-md);
+  color: hsl(var(--card-foreground));
+}
+.weatherCard:hover {
+  background-color: hsl(var(--muted)/0.75);
+}
+.weatherCard:active {
+  background-color: hsl(var(--muted)/0.7);
+  transform: scale(0.98);
+}
+.weatherCard .clickableLink {
+  position: absolute;
+  inset: 0;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.errorCard {
+  justify-content: center;
+  gap: var(--spacing-md);
+  background-color: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+}
+
+.loadingCard {
+  justify-content: center;
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+}
+.loadingCard .loader {
+  width: 20px;
+  height: 20px;
+  border: 2px solid hsl(var(--primary));
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=weatherCard.module.css.map */

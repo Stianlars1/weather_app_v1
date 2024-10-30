@@ -5,7 +5,6 @@ import styles from "./unitsCheckbox.module.css";
 export const UnitsCheckbox = () => {
   const { units, toggleUnitsChange } = useContext(UnitsContext);
   const handleCheckboxChange = () => {
-    console.log("UnitsCheckbox handleCheckboxChange", units);
     toggleUnitsChange();
   };
   return (

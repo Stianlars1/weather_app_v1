@@ -10,7 +10,6 @@ import { useContext } from "react";
 export const LocationList = () => {
   const { userLocation } = useCurrentLocation();
   const { units } = useContext(UnitsContext);
-
   const locations = [userLocation, ...defaultLocations].filter(
     Boolean,
   ) as LocationType[];

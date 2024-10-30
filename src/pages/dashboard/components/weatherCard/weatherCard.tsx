@@ -5,6 +5,7 @@ import { UnitsType } from "../../types/units.ts";
 import { WeatherData } from "../../types/weather.ts";
 import { useFetchWeatherData } from "./hooks/useFetchWeatherData.tsx";
 import styles from "./weatherCard.module.css";
+import { getWeatherCardErrorMessage } from "./helper.ts";
 
 export const WeatherCard = ({
   location,
@@ -28,13 +29,10 @@ export const WeatherCard = ({
   }
 
   if (isError) {
-    const isUsersCurrentLocation = location.name === "My Location";
+    const errorMessage = getWeatherCardErrorMessage(location);
     return (
       <li className={styles.errorCard} aria-label="Error loading weather data">
-        <p>
-          Error fetching{" "}
-          {isUsersCurrentLocation ? "current location" : "weather data"}
-        </p>
+        <p>{errorMessage}</p>
         <button onClick={refetch}>Try again</button>
       </li>
     );

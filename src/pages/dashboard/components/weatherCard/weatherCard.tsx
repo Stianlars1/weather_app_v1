@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import { LocationType } from "./types/location.ts";
-import { UnitsType } from "./types/units.ts";
-import { WeatherData } from "./types/weather.ts";
+import { LocationType } from "../../types/location.ts";
+import { UnitsType } from "../../types/units.ts";
+import { WeatherData } from "../../types/weather.ts";
 import { useFetchWeatherData } from "./hooks/useFetchWeatherData.tsx";
 import styles from "./weatherCard.module.css";
 

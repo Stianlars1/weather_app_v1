@@ -1,0 +1,14 @@
+.locationList {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  margin-top: 20px;
+  gap: var(--spacing-sm);
+  padding: 0 var(--padding);
+}
+
+/*# sourceMappingURL=locationList.module.css.map */

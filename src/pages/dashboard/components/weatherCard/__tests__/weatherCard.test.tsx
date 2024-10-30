@@ -4,7 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactNode } from "react";
 import { WeatherCard } from "../weatherCard.tsx";
-import { LocationType } from "../types/location.ts";
+import { LocationType } from "../../../types/location.ts";
 
 const testLocation = { name: "Oslo", lat: 59.91, lon: 10.75 };
 const errorLocation = { name: null, lat: undefined, lon: undefined };

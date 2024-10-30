@@ -1,5 +1,5 @@
-import { LocationType } from "../types/location.ts";
-import { UnitsType } from "../types/units.ts";
+import { LocationType } from "../../../types/location.ts";
+import { UnitsType } from "../../../types/units.ts";
 import { OPEN_WEATHER_URL } from "../../../../../utils/urls.ts";
 import { API_KEY } from "../../../../../utils/constants.ts";
 

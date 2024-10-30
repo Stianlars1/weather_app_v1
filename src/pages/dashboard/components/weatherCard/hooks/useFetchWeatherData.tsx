@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchWeatherData } from "../api/fetchWeatherData.tsx";
-import { LocationType } from "../types/location.ts";
-import { UnitsType } from "../types/units.ts";
-import { WeatherData, WeatherDTO } from "../types/weather.ts";
+import { LocationType } from "../../../types/location.ts";
+import { UnitsType } from "../../../types/units.ts";
+import { WeatherData, WeatherDTO } from "../../../types/weather.ts";
 import { TEN_MINUTES } from "../../../../../utils/constants.ts";
 
 export const useFetchWeatherData = (

@@ -23,6 +23,8 @@ export const useFetchWeatherData = (
     isError: query.isError,
     isLoading: query.isLoading,
     isSuccess: query.isSuccess,
+    error: query.error,
+    refetch: async () => await query.refetch(),
   };
 };
 

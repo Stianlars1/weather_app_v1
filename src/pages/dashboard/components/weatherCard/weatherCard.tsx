@@ -13,7 +13,10 @@ export const WeatherCard = ({
   location: LocationType;
   units?: UnitsType;
 }) => {
-  const { data, isError, isLoading } = useFetchWeatherData(location, units);
+  const { data, isError, error, isLoading, refetch } = useFetchWeatherData(
+    location,
+    units,
+  );
   const navigate = useNavigate();
 
   if (isLoading) {
@@ -28,8 +31,11 @@ export const WeatherCard = ({
     const isUsersCurrentLocation = location.name === "My Location";
     return (
       <li className={styles.errorCard} aria-label="Error loading weather data">
-        Error fetching{" "}
-        {isUsersCurrentLocation ? "current location" : "weather data"}
+        <p>
+          Error fetching{" "}
+          {isUsersCurrentLocation ? "current location" : "weather data"}
+        </p>
+        <button onClick={refetch}>Try again</button>
       </li>
     );
   }

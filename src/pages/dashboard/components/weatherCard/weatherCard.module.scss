@@ -40,10 +40,25 @@
 }
 
 .errorCard {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
   background-color: hsl(var(--destructive));
   color: hsl(var(--destructive-foreground));
+
+  button {
+    padding: 0.5rem 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    font-size: 0.875rem;
+
+    cursor: pointer;
+  }
 }
 
 .loadingCard {

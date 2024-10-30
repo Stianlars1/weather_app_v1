@@ -1,0 +1,52 @@
+.headerContainer {
+  border-bottom: 1px solid hsl(var(--border));
+
+  .header {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+
+    position: relative;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    height: 65px;
+    padding: 0 var(--padding);
+
+    h1 {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      align-items: center;
+      justify-self: center;
+      margin: 0 auto;
+      font-size: 2.25rem;
+      text-align: center;
+    }
+
+    .nav {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      align-items: center;
+
+      .backButton {
+        white-space: nowrap;
+        color: hsl(var(--primary));
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+          color: hsl(var(--primary) / 0.75);
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./global.css";
-import App from "./App.tsx";
+import { Router } from "./components/router/router.tsx";
+import { QueryClient } from "./components/queryClient/queryClient.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <QueryClient>
+      <Router />
+    </QueryClient>
   </StrictMode>,
 );

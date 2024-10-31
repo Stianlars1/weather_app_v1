@@ -102,4 +102,6 @@ i definetly would have solves stuff in different ways now that im done:
   and messy code.
     - LocationList
     - useCurrentLocation
+ 
+- Ville vanligvis lagd egne brancher for features. Men for å holde oversikten for dere enklere pushet jeg rett på main.
 

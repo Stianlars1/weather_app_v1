@@ -32,7 +32,6 @@ export const mapWeatherData = (
   data: WeatherDTO,
   units: UnitsType,
 ): WeatherData => {
-  console.log("Weather data response data\n", data);
   return {
     currentTemp: formatTemp(data.main.temp),
     humidity: data.main.humidity,

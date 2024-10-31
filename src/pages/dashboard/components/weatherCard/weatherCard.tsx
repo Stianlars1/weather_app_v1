@@ -52,10 +52,6 @@ export const WeatherCard = ({
     event.preventDefault();
     return navigate(`/${data.name}`, { state: data } as { state: WeatherData });
   };
-  console.log(
-    "`${OPEN_WEATHER_ICON_URL}/${data.icon}${OPEN_WEATHER_ICON_FORMAT}`",
-    `${OPEN_WEATHER_ICON_URL}/${data.icon}${OPEN_WEATHER_ICON_FORMAT}`,
-  );
   return (
     <li
       className={styles.weatherCard}

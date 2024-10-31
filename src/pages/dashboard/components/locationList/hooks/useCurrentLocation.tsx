@@ -18,7 +18,9 @@ export const useCurrentLocation = () => {
   const [isLoadingGeo, setIsLoading] = useState<boolean>(false);
 
   const fetchUserLocation = () => {
+    console.info("Trying to get user location");
     if (!navigator.geolocation) {
+      console.error("Geolocation is not supported by your browser.");
       setError("Geolocation is not supported by your browser.");
       setCurrentLocation(initialUserLocation);
       return;
@@ -27,6 +29,7 @@ export const useCurrentLocation = () => {
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        console.info("Successfully got GeoLocation", position);
         setCurrentLocation({
           lon: formatCoordinates(position.coords.longitude),
           lat: formatCoordinates(position.coords.latitude),
@@ -43,11 +46,12 @@ export const useCurrentLocation = () => {
         setIsLoading(false);
       },
       (error) => {
+        console.error("Error getting location", error);
         setError(error.message);
         setCurrentLocation(initialUserLocation);
         setIsLoading(false);
       },
-      { timeout: 2500 },
+      { timeout: 5000 },
     );
   };
 

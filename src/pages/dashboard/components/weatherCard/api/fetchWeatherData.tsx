@@ -8,14 +8,15 @@ export const fetchWeatherData = async (
   units: UnitsType,
 ) => {
   const { lon, lat } = location;
-
+  if (lat === null || lon === null) {
+    throw new Error("Invalid coordinates");
+  }
   const cacheKey = `${lat},${lon}.${units}`;
   const cachedData = JSON.parse(localStorage.getItem(cacheKey) || "{}");
   const url = `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${units}`;
 
   // Check if cached data exists and is still valid
   if (cachedData.expires && Date.now() < cachedData.expires) {
-    console.log("⏳Using cached data");
     return cachedData.data;
   }
 

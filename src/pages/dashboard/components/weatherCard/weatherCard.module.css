@@ -29,10 +29,10 @@
   color: hsl(var(--card-foreground));
 }
 .weatherCard:hover {
-  background-color: hsl(var(--muted)/0.75);
+  background-color: hsl(var(--muted) / 0.75);
 }
 .weatherCard:active {
-  background-color: hsl(var(--muted)/0.7);
+  background-color: hsl(var(--muted) / 0.7);
   transform: scale(0.98);
 }
 .weatherCard .degreeWrapper {

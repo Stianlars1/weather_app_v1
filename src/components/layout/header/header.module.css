@@ -38,7 +38,7 @@
 }
 .headerContainer .header .nav .backButton:hover {
   text-decoration: underline;
-  color: hsl(var(--primary)/0.75);
+  color: hsl(var(--primary) / 0.75);
 }
 .headerContainer .header .nav .backButton:active {
   transform: scale(0.98);

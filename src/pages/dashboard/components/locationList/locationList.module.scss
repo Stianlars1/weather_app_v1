@@ -31,6 +31,8 @@
   font-size: 1rem;
   color: hsl(var(--card-foreground));
 
+  cursor: pointer;
+
   &:hover {
     background-color: hsl(var(--muted) / 0.75);
   }

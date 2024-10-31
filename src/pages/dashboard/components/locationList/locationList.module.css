@@ -25,6 +25,7 @@
   user-select: all;
   font-size: 1rem;
   color: hsl(var(--card-foreground));
+  cursor: pointer;
 }
 @media (max-width: 640px) {
   .useMyLocationButton {
@@ -32,10 +33,10 @@
   }
 }
 .useMyLocationButton:hover {
-  background-color: hsl(var(--muted)/0.75);
+  background-color: hsl(var(--muted) / 0.75);
 }
 .useMyLocationButton:active {
-  background-color: hsl(var(--muted)/0.7);
+  background-color: hsl(var(--muted) / 0.7);
   transform: scale(0.98);
 }
 

@@ -1,80 +1,105 @@
-# React + TypeScript + Vite
+# Getting Started
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+___
 
-Currently, two official plugins are available:
+### Technical Interview at Handelsbanken
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To get started, clone this repository and run the following commands:
+**BE AWARE:** in local dev the SSL and certificated can fail, so users current location might be unavailable.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-
-
-
-
-
-Refleksjon:
-
-
-## få ssl til å funke
-1. Create certificates
 ```bash
-# Create certificated 
-openssl req -x509 -newkey rsa:4096 -nodes -keyout localhost-key.pem -out localhost.pem -days 365
+git clone https://github.com/Stianlars1/weather_app_v1
+cd weather_app_v1
+npm install
+npm run dev
 ```
 
-2. add the 2 files into the cert/ directory
-3. update the vite.config.ts file:
-```jsx
-    https: {
-      key: fs.readFileSync(path.resolve(__dirname, "localhost-key.pem")),
-      cert: fs.readFileSync(path.resolve(__dirname, "localhost.pem")),
-    }
-```
+### Weather App - Things to be aware of
 
+- API key is included in the project
+- Because the navigator API needs a secure context, the users current location wont work in specific browsers. From my
+  understanding, `Safari`will work, but not `Google Chrome` due to https not working properly in development mode.
+  I've used the FREE API from [OpenWeatherMap](https://openweathermap.org/api) to get the weather data.
+  You can get your own API key by signing up on their website.
+- I will try to publish this app on Vercel, so you can see the live version of the app. And hopefully no issues will
+  occur.
+- The app is built with `React` and `Vite` as the bundler. I've used `TypeScript` for the project.
+- The app is responsive and should work on all devices.
+- The app is using custom built CSS modules generated from SCSS files.
 
+### technical
 
-## Ville endret locationList mtp. useCurrentLocation hooken, visning av knappen for å hente location etc.. litt blanding av ryddig og rot.
-- LocationList
-- useCurrentLocation
+- The app uses **Tanstack Query** for **data fetching**
+    - [x] Great cache management
+    - [x] Easy to use
+    - [x] Great documentation
+    - [x] State (success, error, pending / loading) out of the box
+
+- The app uses React Router for routing
+    - [x] Easy to use
+    - [x] Great documentation
+    - [x] Works well with React
+    - [x] Great for single page applications
+
+### functionality
+
+- The app uses the navigator API to get the users current location
+- The app uses the OpenWeatherMap API to get the weather data
+- The app uses the users current location to get the weather data
+
+### design
+
+- The app is designed with a minimalistic approach
+- The app is responsive and should work on all devices
+- The app uses custom built CSS modules generated from SCSS files
+
+### Testing
+
+- To be frank, my experience with testing on the frontend is limited. I've used `vitest` _(some dependecies to jest)_
+  and `React Testing Library` for testing. I've written a few tests for the app, but not as much as I would like to.
+  I've tested the `App` component and the `Weather` component. I've also tested the `useWeather` hook. I've used `Jest`
+  for testing the functions and `React Testing Library` for testing the components.
+- Time limitations stopped me from having more tests available.
+
+### Problems along the way
+
+the data fetching and the useWeather hook took some time to get right because i started out with YR, but they wouldnt
+allow API calls from localhost, so i decided to switch to OpenWeatherMap. The navigator API was also a bit tricky to get
+right cause of browser issues in local dev mode, but i managed to get it working.
+
+### Reflections
+
+i definetly would have solves stuff in different ways now that im done:
+
+- data fetching
+    - i could easily have just mocked the response from the API instead of using the API itself.
+- instead of fidling with the navigator API, i could have used the users IP to get the location ( _at least i think
+  so_ ).
+- i didnt have to spend so much time designing up stuff, but i wanted to make it look good. (Im no designer, but i love
+  dealing with CSS)
+- i could have written more tests, but i didnt have the time to do so, nor did i have the experience..
+
+### Addons?
+
+- search input - for seraching for a place
+- more weather data - like wind speed, humidity, etc.
+- more tests - for the components and the functions
+- more error handling - for the data fetching and the navigator API
+- more design - for the app, like animations and stuff
+- more functionality - like a 5 day forecast or something
+- show the users latest searches or earlier current locations.
+
+### Time used
+
+- the app layout and stuff were done pretty quickly.
+- the data fetching and the useWeather hook took some time to get right.
+- the navigator API was also a bit tricky to get right.
+
+## Refleksjon:
+
+- få ssl til å funke i lokalt-dev modus
+- Would clean up the LocationList component. I usually go for code-splitting. but this file currently have both of clean
+  and messy code.
+    - LocationList
+    - useCurrentLocation
 

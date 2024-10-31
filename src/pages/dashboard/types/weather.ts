@@ -30,4 +30,5 @@ export interface WeatherData {
   name: string;
   units: "F" | "°C";
   description: string;
+  icon: string;
 }

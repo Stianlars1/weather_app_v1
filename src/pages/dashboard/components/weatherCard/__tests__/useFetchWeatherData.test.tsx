@@ -36,6 +36,7 @@ describe("Weather Card Fetching", () => {
       name: "Sample City",
       units: "°C",
       description: "Clear",
+      icon: "01d",
     };
 
     const mapped = mapWeatherData(mockData, "metric");

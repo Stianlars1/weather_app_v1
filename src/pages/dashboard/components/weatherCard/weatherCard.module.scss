@@ -1,18 +1,22 @@
 .weatherCard,
 .errorCard,
 .loadingCard {
-  flex: 1 1 min(200px, 100%);
+  flex: 1 1 min(300px, 100%);
   display: flex;
   align-items: center;
   padding: var(--spacing-lg) var(--spacing-md);
   border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
+
+  @media (max-width: 640px) {
+    flex: 1 1 100%;
+  }
 }
 
 .weatherCard {
   justify-content: space-between;
   gap: var(--spacing-md);
-  background-color: hsl(var(card));
+  background-color: hsl(var(--card));
   position: relative;
   user-select: all;
 
@@ -29,6 +33,16 @@
   &:active {
     background-color: hsl(var(--muted) / 0.7);
     transform: scale(0.98);
+  }
+
+  .degreeWrapper {
+    position: relative;
+    .weatherImage {
+      position: absolute;
+      bottom: 100%;
+      right: 0;
+      border-radius: 50%;
+    }
   }
 
   .clickableLink {

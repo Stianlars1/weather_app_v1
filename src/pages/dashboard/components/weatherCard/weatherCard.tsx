@@ -6,6 +6,11 @@ import { WeatherData } from "../../types/weather.ts";
 import { useFetchWeatherData } from "./hooks/useFetchWeatherData.tsx";
 import styles from "./weatherCard.module.css";
 import { getWeatherCardErrorMessage } from "./helper.ts";
+import { Spinner } from "../../../../components/ui/spinner/spinner.tsx";
+import {
+  OPEN_WEATHER_ICON_FORMAT,
+  OPEN_WEATHER_ICON_URL,
+} from "../../../../utils/urls.ts";
 
 export const WeatherCard = ({
   location,
@@ -23,7 +28,7 @@ export const WeatherCard = ({
   if (isLoading) {
     return (
       <li className={styles.loadingCard} aria-label="Loading weather data">
-        <div className={styles.loader} role="status" aria-label="Loading" />
+        <Spinner />
       </li>
     );
   }
@@ -47,16 +52,31 @@ export const WeatherCard = ({
     event.preventDefault();
     return navigate(`/${data.name}`, { state: data } as { state: WeatherData });
   };
-
+  console.log(
+    "`${OPEN_WEATHER_ICON_URL}/${data.icon}${OPEN_WEATHER_ICON_FORMAT}`",
+    `${OPEN_WEATHER_ICON_URL}/${data.icon}${OPEN_WEATHER_ICON_FORMAT}`,
+  );
   return (
     <li
       className={styles.weatherCard}
       aria-label={`Weather for ${location.name}`}
     >
       <h2 className={styles.title}>{location.name}</h2>
-      <p className={styles.degrees}>
-        {data.currentTemp} {data.units}
-      </p>
+      <div className={styles.degreeWrapper}>
+        <p className={styles.degrees}>
+          {data.currentTemp} {data.units}
+        </p>
+
+        <img
+          alt="Weather preview icon"
+          aria-hidden={true}
+          src={`${OPEN_WEATHER_ICON_URL}/${data.icon}${OPEN_WEATHER_ICON_FORMAT}`}
+          className={styles.weatherImage}
+          width={25}
+          height={25}
+          fetchPriority={"high"}
+        />
+      </div>
       <a
         className={styles.clickableLink}
         onClick={handleCardClick}

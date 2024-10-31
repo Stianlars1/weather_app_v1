@@ -1,48 +1,58 @@
 .weatherDetailsPage {
   display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  width: min(var(--max-width), 100%);
-  gap: 8rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   padding-top: 64px;
+  width: min(var(--max-width), 100%);
+  gap: 2rem;
+}
+.weatherDetailsPage .weatherImage {
+  margin: 0 auto;
+}
+.weatherDetailsPage .detailsWrapper {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 8rem;
 }
 @media (max-width: 768px) {
-  .weatherDetailsPage {
+  .weatherDetailsPage .detailsWrapper {
     flex-direction: column;
     gap: 4rem;
   }
 }
-.weatherDetailsPage .basicWeatherDetails {
+.weatherDetailsPage .detailsWrapper .basicWeatherDetails {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
 }
-.weatherDetailsPage .basicWeatherDetails > * {
+.weatherDetailsPage .detailsWrapper .basicWeatherDetails > * {
   line-height: 1;
 }
-.weatherDetailsPage .basicWeatherDetails .tempDescription {
+.weatherDetailsPage .detailsWrapper .basicWeatherDetails .tempDescription {
   font-size: 1.25rem;
   color: hsl(var(--muted-foreground));
 }
-.weatherDetailsPage .basicWeatherDetails .tempTitle {
+.weatherDetailsPage .detailsWrapper .basicWeatherDetails .tempTitle {
   font-size: 3.5rem;
 }
-.weatherDetailsPage .basicWeatherDetails .tempRangesWrapper {
+.weatherDetailsPage .detailsWrapper .basicWeatherDetails .tempRangesWrapper {
   color: hsl(var(--muted-foreground));
   display: flex;
   align-items: center;
   gap: 1.25rem;
 }
-.weatherDetailsPage .detailedWeatherDetails {
+.weatherDetailsPage .detailsWrapper .detailedWeatherDetails {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   align-content: center;
   place-content: center;
 }
-.weatherDetailsPage .detailedWeatherDetails article {
+.weatherDetailsPage .detailsWrapper .detailedWeatherDetails article {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,28 +60,28 @@
   font-size: 1.1rem;
   padding: var(--spacing-md);
 }
-.weatherDetailsPage .detailedWeatherDetails article strong {
+.weatherDetailsPage .detailsWrapper .detailedWeatherDetails article strong {
   color: hsl(var(--muted-foreground));
 }
-.weatherDetailsPage .detailedWeatherDetails .sunrise {
+.weatherDetailsPage .detailsWrapper .detailedWeatherDetails .sunrise {
   border-right: 1px solid hsl(var(--border));
   border-bottom: 1px solid hsl(var(--border));
   grid-column: 1/2;
   grid-row: 1/2;
 }
-.weatherDetailsPage .detailedWeatherDetails .sunset {
+.weatherDetailsPage .detailsWrapper .detailedWeatherDetails .sunset {
   border-left: 1px solid hsl(var(--border));
   border-bottom: 1px solid hsl(var(--border));
   grid-column: 2/3;
   grid-row: 1/2;
 }
-.weatherDetailsPage .detailedWeatherDetails .humidity {
+.weatherDetailsPage .detailsWrapper .detailedWeatherDetails .humidity {
   grid-column: 1/2;
   grid-row: 2/3;
   border-top: 1px solid hsl(var(--border));
   border-right: 1px solid hsl(var(--border));
 }
-.weatherDetailsPage .detailedWeatherDetails .visibility {
+.weatherDetailsPage .detailsWrapper .detailedWeatherDetails .visibility {
   grid-column: 2/3;
   grid-row: 2/3;
   border-left: 1px solid hsl(var(--border));

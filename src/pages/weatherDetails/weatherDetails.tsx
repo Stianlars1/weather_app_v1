@@ -1,7 +1,11 @@
 import styles from "./weatherDetails.module.css";
 import { useWeatherDetailsTitle } from "./hooks/useWeatherDetailsTitle.tsx";
 import { Navigate, useLocation } from "react-router-dom";
-import { ROOT_PATH } from "../../utils/urls.ts";
+import {
+  OPEN_WEATHER_ICON_FORMAT,
+  OPEN_WEATHER_ICON_URL,
+  ROOT_PATH,
+} from "../../utils/urls.ts";
 import { WeatherData } from "../dashboard/types/weather.ts";
 import { Header } from "../../components/layout/header/header.tsx";
 
@@ -18,10 +22,20 @@ export const WeatherDetailsPage = () => {
   return (
     <>
       <Header backButton={true} headerTitle={headerTitle || "Details page"} />
-
       <main className={styles.weatherDetailsPage}>
-        <BasicWeatherDetails weatherData={weatherData} />
-        <DetailedWeatherDetails weatherData={weatherData} />
+        <img
+          src={`${OPEN_WEATHER_ICON_URL}/${weatherData.icon}${OPEN_WEATHER_ICON_FORMAT}`}
+          aria-hidden={true}
+          className={styles.weatherImage}
+          fetchPriority={"high"}
+          width={75}
+          height={75}
+          alt={"Weather preview icon"}
+        />
+        <div className={styles.detailsWrapper}>
+          <BasicWeatherDetails weatherData={weatherData} />
+          <DetailedWeatherDetails weatherData={weatherData} />
+        </div>
       </main>
     </>
   );

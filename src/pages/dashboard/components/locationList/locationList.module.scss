@@ -10,3 +10,36 @@
   gap: var(--spacing-sm);
   padding: 0 var(--padding);
 }
+
+.useMyLocationButton {
+  flex: 1 1 min(300px, 100%);
+  @media (max-width: 640px) {
+    flex: 1 1 100%;
+  }
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  background-color: hsl(var(--card));
+  position: relative;
+  user-select: all;
+
+  font-size: 1rem;
+  color: hsl(var(--card-foreground));
+
+  &:hover {
+    background-color: hsl(var(--muted) / 0.75);
+  }
+
+  &:active {
+    background-color: hsl(var(--muted) / 0.7);
+    transform: scale(0.98);
+  }
+}
+
+.myLocationUnavailable {
+}

@@ -6,9 +6,12 @@ import { useCurrentLocation } from "./hooks/useCurrentLocation.tsx";
 import { UnitsCheckbox } from "./components/unitsCheckbox/unitsCheckbox.tsx";
 import { UnitsContext } from "../../../../context/unitsContext.tsx";
 import { useContext } from "react";
+import { Spinner } from "../../../../components/ui/spinner/spinner.tsx";
 
 export const LocationList = () => {
-  const { userLocation } = useCurrentLocation();
+  const { userLocation, fetchUserLocation, geoError, isLoadingGeo } =
+    useCurrentLocation();
+
   const { units } = useContext(UnitsContext);
   const locations = [userLocation, ...defaultLocations].filter(
     Boolean,
@@ -17,7 +20,17 @@ export const LocationList = () => {
   return (
     <>
       <UnitsCheckbox />
+
       <ul className={styles.locationList}>
+        {!userLocation && (
+          <button
+            className={`${styles.useMyLocationButton} ${geoError ? styles.myLocationUnavailable : ""}`}
+            onClick={fetchUserLocation}
+          >
+            {isLoadingGeo && <Spinner />}
+            {!isLoadingGeo && "Use My Location"}
+          </button>
+        )}
         {locations.map((location) => (
           <WeatherCard
             units={units}

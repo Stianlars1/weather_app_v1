@@ -51,7 +51,7 @@ export const useCurrentLocation = () => {
         setCurrentLocation(initialUserLocation);
         setIsLoading(false);
       },
-      { timeout: 5000 },
+      { timeout: 10000, maximumAge: 0 },
     );
   };
 

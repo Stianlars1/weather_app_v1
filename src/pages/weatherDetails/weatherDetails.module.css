@@ -9,6 +9,7 @@
 @media (max-width: 768px) {
   .weatherDetailsPage {
     flex-direction: column;
+    gap: 4rem;
   }
 }
 .weatherDetailsPage .basicWeatherDetails {

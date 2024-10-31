@@ -48,3 +48,33 @@ export default tseslint.config({
   },
 })
 ```
+
+
+
+
+
+Refleksjon:
+
+
+## få ssl til å funke
+1. Create certificates
+```bash
+# Create certificated 
+openssl req -x509 -newkey rsa:4096 -nodes -keyout localhost-key.pem -out localhost.pem -days 365
+```
+
+2. add the 2 files into the cert/ directory
+3. update the vite.config.ts file:
+```jsx
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, "localhost-key.pem")),
+      cert: fs.readFileSync(path.resolve(__dirname, "localhost.pem")),
+    }
+```
+
+
+
+## Ville endret locationList mtp. useCurrentLocation hooken, visning av knappen for å hente location etc.. litt blanding av ryddig og rot.
+- LocationList
+- useCurrentLocation
+
